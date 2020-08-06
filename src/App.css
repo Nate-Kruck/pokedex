@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
+@keyframes button {
   from {
     transform: rotate(0deg);
   }
@@ -40,5 +40,46 @@ h1 {
 html {
   background-image: url(./pokemon-wallpapers.jpg);
 }
+
+button {
+  width: 60px;
+	height: 60px;
+  display: float;
+  cursor: pointer;
+	margin:20px;
+	position: relative;
+	border: 2px solid #ccc;
+  border-radius: 50%;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Lato';
+	background-image: -moz-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%,rgba(0,0,0,1) 100%), -moz-linear-gradient(-90deg, #f33 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%);
+  background-image: -webkit-radial-gradient(40% 40%,circle,rgba(0,0,0,.1) 40%,rgba(0,0,0,1) 100%),-webkit-linear-gradient(-90deg, #f33 45%, #333 45%, #3f3f3f 50%, #333 55%, #FFF 55%);
+  ;
+} */
+
+button {
+    background: transparent;
+    overflow: visible;
+    outline: none;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: 'Lato';
+    
+}
+button:hover {
+  border-color: #ffd740;
+  transform: translate3d(0, -50%, 0);
+    transition: transform 0.45s;
+    transition-timing-function: cubic-bezier(0.9, 1, 0.9, 1);
+      transform: translate3d(0, 50%, 50%);
+}
+
+
+
+
+
+
+
 
 

@@ -45,7 +45,7 @@ export default class App extends Component {
             />
         </h1>
         <div className="Input">
-          <input onChange={this.handleChange} name="search" />
+          <input onChange={this.handleChange} name="search" placeholder="Enter Pokemon Name" />
           <button onClick={this.handleClick}>Search</button>
         </div>
         <PokemonList renderPokemon={this.state.pokeState} />
