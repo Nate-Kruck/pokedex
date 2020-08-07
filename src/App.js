@@ -1,55 +1,47 @@
 
 import React, { Component } from 'react'
-import request from 'superagent'
-import PokemonList from './PokemonList.js'
-import './App.css'
-
-
+// import PokemonList from './PokemonList.js'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+} from 'react-router-dom';
+import DetailPage from './Detail/DetailPage.js';
+import SearchPage from './SearchPage/SearchPage.js'
 
 export default class App extends Component {
-    state = {
-      pokeState: [],
-      searchKeyword: '',
-    }
-    
-    handleChange = (event) => {
-      const value = event.target.value;
-      this.setState({ searchKeyword: value });
-    }
-    
-    handleClick = async () => {
-      const grabData = await request.get(
-        `https://alchemy-pokedex.herokuapp.com/api/pokedex?perPage=1000&pokemon=${this.state.searchKeyword}`)
-
-        this.setState({
-          pokeState: grabData.body.results
-        })
-
-      console.log('hello world')
-      console.log(grabData.body)
-      
-    }
-    
-    
-    
-    
   render() {
     return (
-      <div>
-        <h1>
-          <img
-            src="https://fontmeme.com/permalink/200806/d85c9c51a4999a6b7f006f8bf39965aa.png"
-            alt="pokemon-font"
-            border="0"
-
+      <>
+      <header className="header">
+          <h1> 
+            <img className="pokemon-title" src="https://fontmeme.com/permalink/200806/d85c9c51a4999a6b7f006f8bf39965aa.png" alt="pokemon-font" border="0" /> 
+          </h1>
+        </header>
+        <Router>
+          <nav className="nav">
+            <li>
+              <Link to="/detail">Detail</Link>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          </nav>
+          <Switch>
+            <Route
+              path="/detail/:myPokemonId"
+              exact
+              render={(routerProps) => <DetailPage {...routerProps} />}
             />
-        </h1>
-        <div className="Input">
-          <input onChange={this.handleChange} name="search" placeholder="Enter Pokemon Name" />
-          <button onClick={this.handleClick}>Search</button>
-        </div>
-        <PokemonList renderPokemon={this.state.pokeState} />
-      </div>
+            <Route
+              path="/"
+              exact
+              render={(routerProps) => <SearchPage {...routerProps} />}
+            />
+          </Switch>
+        </Router>
+      </>
     );
   }
 }
