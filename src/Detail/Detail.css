@@ -1,0 +1,11 @@
+.pokemon-box {
+    width: 200px;
+    border: 2px solid black;
+    background-color: rgba(75, 60, 60, 0.85);
+    border-radius: 20% 20% 0 30%;
+    padding: 5px;
+    list-style: none;
+    text-align: center;
+    margin: 0 auto;
+    scroll-behavior: smooth;
+}
